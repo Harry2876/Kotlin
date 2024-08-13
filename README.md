@@ -1,7 +1,5 @@
 # Introduction
 
-Created: August 9, 2024 3:20 PM
-Section: Introduction
 
 - To inherit class in Kotlin we don't use extends keyword,
 a **`:`** is used to inherit classes.
