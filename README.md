@@ -280,3 +280,219 @@ class newClass : addNum {
     }
 }
 ```
+### Abstraction
+
+- Abstraction is one of the core concepts of object-oriented programming.
+- When there is a scenario that you are aware of what functionalities a class should have, but not aware of how the functionality is implemented or if the functionality could be implemented in several ways, it is advised to use abstraction.
+- It contains abstract or non-abstract: variables and functions.
+- Abstract class cannot be initiated but could be extended to a super class.
+
+```kotlin
+//creating a abstract class
+abstract class abClass{
+    var name : String = "Hariom"
+
+    abstract var branch : String
+
+     fun add(a : Int , b: Int) : Int {
+        return a+b
+    }
+
+    abstract fun mult(a:Int , b:Int) :Int
+
+}
+
+class testClass : abClass() {
+
+    //as its abstract we need to override methods
+
+    override var branch = "Hello"
+    override fun mult(a: Int, b: Int): Int {
+        return a*b
+    }
+
+}
+```
+
+### Enum
+
+- In programming, sometimes there arises a need for a type to have only certain values.
+- To accomplish this, the concept of enumeration was introduced.
+- In Kotlin, like many other programming languages, an **enum** has its own specialized type, indication that something has a number of possible values.
+- Enum constants aren’t just mere collections of constants-these have properties, methods etc.
+- Each of the enum constants acts as separate instances of the class and separated by commas.
+- Enums increases readability of your code by assigning pre-defined names to constants.
+
+```kotlin
+
+fun main(){
+    //Printing a day
+    println("Today is ${weekDays.MONDAY}")
+
+    //getting number of holidays
+    for (day in weekDays.values()){
+        if (day.holiday)
+            println("${day} is Holiday")
+    }
+
+    //printing all available directions
+    println("All Available directions")
+    for (dir in directions.values()) {
+        println(dir)
+    }
+
+}
+
+//creating a enum class for week days
+enum class weekDays(var holiday : Boolean = false){
+    SUNDAY(true),
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY(true)
+}
+
+//testing a enum class for directions
+enum class directions {
+    EAST,
+    WEST,
+    NORTH,
+    SOUTH
+}
+```
+
+### Generics
+
+- Generic is defined as a product without a brand name.
+- The definition of generic is something without a brand name.
+- Generics are the powerful features that allow us to define classes, methods and properties.
+- Which are accessible using different data types while keeping a check of the compile-time type safety.
+- A Generic type is a class or method that is parameterized over types.
+- We always use angle brackets () to specify the type of parameter in the program.
+
+> **Advantages of Generics**
+> 
+- Type casting is evitable- No need to typecast the object.
+- Type safety- Generic allows only single type of object at a time.
+- Compile time safety- Generics code is checked at compile time for the parameterized type so that it avoids run time error.
+
+```kotlin
+fun main(){
+
+    val genclass = genClass("Its Harry")
+
+}
+
+//creating a generic class
+class genClass<T> (value : T) {
+    init {
+        println("The value Assigned is : $value")
+    }
+}
+
+fun <T> check(text:T){
+    println("Received value is : $text")
+}
+```
+
+### Lambdas
+
+- It is just a function without name.
+- Also known as Anonymous functions.
+
+```kotlin
+fun main(){
+
+    //using lambda expressions
+    println("square of 6 is ${sqr(6)}")
+    println("Sum of two numbers is ${add(3,4)}")
+    printName("Hariom")
+
+}
+
+//writing normal function
+fun square(a : Int ) : Int {
+    return a*a
+}
+
+//writing lambda expressions
+val  sqr = {x: Int -> x*x}
+
+val add : (Int, Int) -> Int = {x,y -> x+y}
+
+val printName = {name : String -> println("Hello $name")}
+```
+
+### High order Function
+
+- A function which can accepts a function as parameter or can returns a function is called Higher-Order function.
+- Kotlin functions can be stored in variables and data structures, passed as arguments to and returned from other higher-order functions.
+
+```kotlin
+
+fun main(){
+
+    highOrder(printMe)
+    highAdd(add)
+
+}
+
+//working with higher order functions
+val printMe = { println("Hello How are You :)") }
+val add = { a:Int, b:Int -> a+b}
+val retFunc = {a:Int, b:Int -> "The sum is ${a+b}"}
+
+fun highOrder(function: () -> Unit){
+    function()
+}
+
+fun highAdd(addFunc: (Int, Int) ->Int ) : (Int, Int) -> String {
+    println("The sum is ${addFunc(5,6)}")
+
+    return retFunc
+}
+```
+
+### Delegation
+
+- Inheritance implementation in classes and functions can be altered with the help of delegation techniques.
+- Object-oriented programming languages support it innately without any boilerplate code.
+- Delegation is used in Kotlin with the help of `by` keyword.
+
+```kotlin
+fun main(){
+
+val taskname: String = " Download Task"
+val taskManager = TaskManager(bgTask(taskname),bgExecute(taskname))
+
+    taskManager.create()
+    taskManager.execute()
+}
+
+interface task {
+    fun create()
+}
+
+interface executeTask {
+    fun execute()
+
+}
+
+class bgTask(val taskname: String): task {
+    override fun create() {
+        println("Task"+taskname+"created!")
+    }
+}
+
+class bgExecute(val taskname: String):executeTask{
+    override fun execute() {
+        println("Task $taskname is Executing...")
+    }
+}
+
+//using delegation
+class TaskManager(val creator:task, val executor:executeTask) :
+        task by creator, executeTask by executor
+```
