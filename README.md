@@ -1,6 +1,6 @@
 # Kotlin Programming Language
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="150"> Kotlin is a modern programming language that runs on the Java Virtual Machine (JVM) and is fully interoperable with Java. It is designed to be concise, expressive, and safe, making it an excellent choice for both new and experienced developers. Kotlin is used for a variety of applications, from Android development to server-side and web development.
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Logo" width="100"> Kotlin is a modern programming language that runs on the Java Virtual Machine (JVM) and is fully interoperable with Java. It is designed to be concise, expressive, and safe, making it an excellent choice for both new and experienced developers. Kotlin is used for a variety of applications, from Android development to server-side and web development.
 
 ## Author
 
