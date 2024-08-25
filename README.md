@@ -1,6 +1,31 @@
+
+## Table of Contents
+
+1. [Inheritance in Kotlin](#inheritance-in-kotlin)
+2. [Variable Declarations](#variable-declarations)
+3. [Methods in Kotlin](#methods-in-kotlin)
+4. [Control Statements](#control-statements)
+5. [Loops](#loops)
+6. [Pair and Triple](#pair-and-triple)
+7. [Classes and Objects](#classes-and-objects)
+8. [Constructors](#constructors)
+9. [Companion Object](#companion-object)
+10. [Inheritance](#inheritance)
+11. [this vs super Keyword](#this-vs-super-keyword)
+12. [Interface](#interface)
+13. [Abstraction](#abstraction)
+14. [Enum](#enum)
+15. [Generics](#generics)
+16. [Lambdas](#lambdas)
+17. [Higher-Order Functions](#higher-order-functions)
+18. [Delegation](#delegation)
+19. [Scope Functions](#scope-functions)
+20. [Collections](#collections)
+21. [Nullability in Kotlin](#nullability-in-kotlin)
+
+---
+
 # Introduction
-
-
 - To inherit class in Kotlin we don't use extends keyword,
 a **`:`** is used to inherit classes.
 - Classes in Kotlin are not pre declared as open to use, we must declare a class `open` to inherit and use it.
@@ -142,6 +167,9 @@ class TestLearn {
 1. **Secondary/Custom Constructor**
     - A class in Kotlin can have at most one primary constructor, and one or more custom/secondary constructors.
     - The primary constructor initializes the class and introduce some extra logic.
+    
+    [https://www.notion.so](https://www.notion.so)
+    
 
 ```kotlin
 class TestLearn {
@@ -280,6 +308,7 @@ class newClass : addNum {
     }
 }
 ```
+
 ### Abstraction
 
 - Abstraction is one of the core concepts of object-oriented programming.
@@ -495,4 +524,217 @@ class bgExecute(val taskname: String):executeTask{
 //using delegation
 class TaskManager(val creator:task, val executor:executeTask) :
         task by creator, executeTask by executor
+```
+
+### Scope Functions
+
+- The Kotlin standard library contains several functions whose sole purpose is to execute a block of code within the context of an object.
+- When you call such a function on an object with a lambda expression provided, it forms a temporary scope.
+- In this scope, you can access the object without its name.
+- **Types of Scope Functions**
+1. **With**
+    - Return: lambda result
+    - context object: this
+2. **let**
+    - Return: lambda result
+    - context object: it
+    - Used for null values
+3. **run**
+    - Return: lambda result
+    - context object: this
+4. **apply**
+    - Return: context object
+    - context object: this
+5. **also**
+    - Return: context object
+    - context object: it
+
+```kotlin
+fun main(){
+
+    //working on let scope function
+    var name: String? = null
+
+    name?.let {
+        println("The length of the name is ${it.length}")
+        println("The name is $it")
+        println("The reversed name is ${it.reversed()}")
+    }
+
+    //applying scope function
+    val user = user().apply {
+        name = "Hariom"
+        age = 20
+        mobNo = "0987654321"
+    }
+
+   val age = with(user){
+       println("The Name of user is $name")
+       age
+   }
+    println("The age of user is $age")
+
+    user.also {
+        it.name = "Harsh"
+        it.age = 21
+
+        println("The Name and age of user has been updated...")
+    }
+
+    println("The new name and age is ${user.name} and ${user.age}")
+
+}
+
+class user {
+    var name: String = ""
+    var age: Int = 0
+    var mobNo: String = ""
+}
+```
+
+- for `run` scope function
+
+```kotlin
+fun main() {
+
+    val user = user()
+
+    //run is used when with is used with it
+    val msg = user.run {
+        println("The name of user is $name")
+        age
+        "Msg is returned"
+    }
+
+    println("Msg is $msg")
+}
+
+class user {
+    var name: String = "Hariom"
+    var age: Int = 20
+    var mobNo: String = "0987654321"
+}
+```
+
+### Collections
+
+- A Collection usually contains a number of objects (this number may also be zero) of the same type.
+- Objects in a collection are called elements or items.
+- For example, all the students in a department form a collection that can be used to calculate their average age.
+
+> The following collection types are relevant for Kotlin
+> 
+1. **List**
+    - It is an ordered collection with access to elements by indices - integer numbers that reflect their position.
+    - Elements can occur more than once in a list.
+    - An example of a list is a sentence: it’s a group of words, the order is important, and they can repeat.
+2. **Set**
+    - It is a collection of unique elements.
+    - It reflects the mathematical abstraction of set: a group of objects without repetitions.
+    - Generally, the order of set elements has no significance. For example, an alphabet is a set of letters.
+3. **Map**
+    - It (or dictionary) is a set of key-value pairs.
+    - Keys are unique, and each of them maps to exactly one value.
+    - The values can be duplicates.
+    - Maps are useful for storing logical connections between objects, for example, an employee’s Id and their position.
+
+```kotlin
+//For Lists
+
+fun main() {
+
+    //code for list
+    val aList = listOf("Hariom","Harry", "Harsh","1")
+    println("$aList \n")
+
+    val mList = mutableListOf<Any>("Harshuu", "Haruka", "Naruto")
+
+    mList.add("Dattebayo")
+    mList.add(9)
+
+    //we can also add or nest list in other list
+    val newList = mutableListOf("sasuke", "Itachi")
+
+    mList.add(newList)
+
+    println(mList)
+
+}
+```
+
+- Code is same for `set` only main thing is it doesn’t allow repetitions.
+
+```kotlin
+//code for Maps
+
+fun main() {
+
+    val aMap = mapOf<Any, Any>(1 to "Hariom", 2 to "Alok", 3 to "Shashi")
+
+    println(aMap)
+
+    //creating mutable map
+    val mMap = mutableMapOf<Any, Any>()
+
+    val newMap = mutableMapOf<Any, Any>(1 to "Dattebyo", 2 to "Naruto", 3 to "Sasuke")
+
+    //we can add diff maps by putAll keyword
+
+    mMap.putAll(newMap)
+
+    //we can also make changes in a specific element of a map
+
+    mMap[1]= "Itachi"
+
+    println(mMap)
+}
+```
+
+- We can also store elements in `ArrayList<>` and can modify them.
+
+```kotlin
+
+fun main() {
+
+    //creating a ArrayList
+
+    val newNames = ArrayList<String>()
+
+    newNames.add("Hariom")
+    newNames.add("shashi")
+
+    //we can also modify items by the index number
+    newNames[0] = "Naruto"
+
+    println(newNames)
+
+    //we can also remove elements
+    newNames.removeAt(0)
+
+    println(newNames.toString())
+
+}
+```
+
+### Nullability in Kotlin
+
+- Null means declaring a variable without any value
+- To give null value we use `?` to the Keyword.
+
+```kotlin
+fun main() {
+
+    var name : String? = null
+
+    /*  we can also use !! to forcefully print the value
+    but it will give null pointer exception error.
+    
+    println("The length of name is ${name!!.length}")
+*/
+    name.let {
+
+        println("The  name is $name")
+    }
+    
+}
 ```
