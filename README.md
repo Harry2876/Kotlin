@@ -4,7 +4,7 @@
 
 ## Author
 
-This documentation was created by [Harry](https://github.com/Harry2876).
+This documentation was created by [Harry](https://github.com/Harry2876).<img src="https://avatars.githubusercontent.com/u/132590839?s=400&u=c9383791a58e5f305b3a3b8daae453bb3a99bc1e&v=4" alt="Harry's Profile" width="50" height="50">
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ This documentation was created by [Harry](https://github.com/Harry2876).
 13. [Enum](#enum)
 14. [Generics](#generics)
 15. [Lambdas](#lambdas)
-16. [Higher-Order Functions](#higher-order-functions)
+16. [Higher-Order Functions](#high-order-function)
 18. [Delegation](#delegation)
 19. [Scope Functions](#scope-functions)
 20. [Collections](#collections)
@@ -31,7 +31,7 @@ This documentation was created by [Harry](https://github.com/Harry2876).
 
 ---
 
-# Introduction
+# Key Points
 - To inherit class in Kotlin we don't use extends keyword,
 a **`:`** is used to inherit classes.
 - Classes in Kotlin are not pre declared as open to use, we must declare a class `open` to inherit and use it.
