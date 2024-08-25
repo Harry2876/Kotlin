@@ -4,7 +4,7 @@
 
 ## Author
 
-This documentation was created by [Harry](https://github.com/Harry2876).<img src="https://avatars.githubusercontent.com/u/132590839?s=400&u=c9383791a58e5f305b3a3b8daae453bb3a99bc1e&v=4" alt="Harry's Profile" width="100" height="80" style="margin-top: 20px; border-radius: 5px;">
+This documentation was created by [Harry](https://github.com/Harry2876).<img src="https://avatars.githubusercontent.com/u/132590839?s=400&u=c9383791a58e5f305b3a3b8daae453bb3a99bc1e&v=4" alt="Harry's Profile" width="50" height="50" style="margin-top: 50px; border-radius: 30px;">
 
 ## Table of Contents
 
