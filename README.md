@@ -28,6 +28,7 @@ This documentation is created by Hariom Harsh [Harry](https://github.com/Harry28
 19. [Scope Functions](#scope-functions)
 20. [Collections](#collections)
 21. [Nullability in Kotlin](#nullability-in-kotlin)
+22. [Arrays in Kotlin](#Arrays in Kotlin)
 
 ---
 
@@ -744,3 +745,465 @@ fun main() {
     
 }
 ```
+
+# Arrays in Kotlin
+
+
+
+### **1. Introduction to Arrays**
+
+In Kotlin, arrays are used to store multiple values of the same type in a single variable. Arrays are objects, and the size of an array is fixed once it is created.
+
+### **2. Declaring an Array**
+
+You can declare an array in Kotlin in multiple ways.
+
+**Syntax:**
+
+```kotlin
+kotlin
+Copy code
+val arrayName = arrayOf(value1, value2, value3, ...)
+
+```
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+val fruits = arrayOf("Apple", "Banana", "Cherry")
+
+```
+
+Here, the `fruits` array holds three string values.
+
+### **3. Array Size**
+
+You can specify the size of an array by using `Array()` constructor.
+
+**Syntax:**
+
+```kotlin
+kotlin
+Copy code
+val arrayName = Array(size) { initialValue }
+
+```
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+val numbers = Array(5) { 0 }  // Creates an array of size 5, initialized with 0
+
+```
+
+### **4. Accessing Array Elements**
+
+Arrays are accessed using an index. Remember, array indexing starts at 0.
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+println(fruits[0])  // Output: Apple
+
+```
+
+### **5. Changing Array Elements**
+
+You can modify array elements by assigning a new value to a specific index.
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+fruits[1] = "Blueberry"
+println(fruits[1])  // Output: Blueberry
+
+```
+
+### **6. Iterating Through an Array**
+
+You can loop through arrays using a `for` loop or `forEach`.
+
+**Example 1: Using `for` loop**
+
+```kotlin
+kotlin
+Copy code
+for (fruit in fruits) {
+    println(fruit)
+}
+
+```
+
+**Example 2: Using `forEach`**
+
+```kotlin
+kotlin
+Copy code
+fruits.forEach { println(it) }
+
+```
+
+### **7. Array Methods**
+
+Kotlin arrays come with built-in methods for manipulation.
+
+- **`size`**: Get the size of an array.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.size)  // Output: 3
+    
+    ```
+    
+- **`isEmpty()`**: Check if the array is empty.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.isEmpty())  // Output: false
+    
+    ```
+    
+- **`contains(value)`**: Check if the array contains a specific value.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.contains("Banana"))  // Output: true
+    
+    ```
+    
+- **`indexOf(value)`**: Find the index of a value.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.indexOf("Cherry"))  // Output: 2
+    
+    ```
+    
+
+### **8. Multidimensional Arrays**
+
+You can create arrays of arrays (i.e., 2D arrays) in Kotlin.
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+val matrix = Array(2) { Array(3) { 0 } }
+matrix[0][0] = 1
+matrix[1][2] = 2
+
+```
+
+This creates a 2x3 matrix initialized with 0s.
+
+### **9. Array Operations**
+
+Kotlin provides several functions to manipulate arrays.
+
+- **`map()`**: Transforms the array elements.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val lengths = fruits.map { it.length }
+    println(lengths)  // Output: [5, 9, 6]
+    
+    ```
+    
+- **`filter()`**: Filters elements based on a condition.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val filtered = fruits.filter { it.contains("e") }
+    println(filtered)  // Output: [Apple, Cherry]
+    
+    ```
+    
+- **`sorted()`**: Sorts the array.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val sortedFruits = fruits.sorted()
+    println(sortedFruits)  // Output: [Apple, Banana, Cherry]
+    
+    ```
+    
+- **`reversed()`**: Reverses the array.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val reversedFruits = fruits.reversed()
+    println(reversedFruits)  // Output: [Cherry, Banana, Apple]
+    
+    ```
+    
+- **`joinToString()`**: Converts the array into a string.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val fruitsString = fruits.joinToString(", ")
+    println(fruitsString)  // Output: Apple, Banana, Cherry
+    
+    ```
+    
+
+### **10. Advanced Array Techniques**
+
+- **Copying an Array**: You can copy an array with `copyOf()` or `copyOfRange()`.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val copiedFruits = fruits.copyOf()
+    println(copiedFruits.joinToString())  // Output: Apple, Banana, Cherry
+    
+    ```
+    
+- **Array with Specific Type**: You can specify the array type explicitly.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val intArray = IntArray(3) { 0 }
+    println(intArray.joinToString())  // Output: 0, 0, 0
+    
+    ```
+    
+- **Using `ArrayList`**: If you need a dynamic array (resizable array), use `ArrayList`.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val dynamicArray = arrayListOf("Apple", "Banana")
+    dynamicArray.add("Cherry")
+    println(dynamicArray)  // Output: [Apple, Banana, Cherry]
+    
+    ```
+    
+
+### **11. Common Array Challenges**
+
+- **Find the maximum value in an array**:
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val max = numbers.maxOrNull()
+    println(max)  // Output: null if empty
+    
+    ```
+    
+- **Find the sum of elements in an array**:
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val sum = numbers.sum()
+    println(sum)  // Output: 0
+    
+    ```
+    
+- **Checking for null values in an array**:
+    
+    ```kotlin
+    kotlin
+    Copy code
+    val nullableArray = arrayOf(1, 2, null, 4)
+    val containsNull = nullableArray.contains(null)
+    println(containsNull)  // Output: true
+    
+    ```
+    
+
+### **Mutable vs Immutable ArrayLists in Kotlin**
+
+In Kotlin, you can create lists using `ArrayList` that can either be **mutable** (changeable) or **immutable** (non-changeable). Both serve different purposes depending on whether you need to modify the list after creation.
+
+---
+
+### **1. Immutable ArrayList**
+
+An **immutable ArrayList** is a list that cannot be modified once it’s created. This means you cannot add, remove, or modify elements in the list. You can only **read** the elements.
+
+- **Declared with `List` interface**:
+In Kotlin, an immutable list is represented by the `List` interface.
+
+### **How to Create an Immutable ArrayList**
+
+You can use the `listOf()` function to create an immutable list.
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+val fruits = listOf("Apple", "Banana", "Cherry")
+
+// Accessing elements
+println(fruits[0])  // Output: Apple
+
+// This will give an error:
+// fruits[1] = "Blueberry" // Error: Val cannot be reassigned
+
+```
+
+### **Key Properties of Immutable ArrayList:**
+
+- **Size cannot change**.
+- **Cannot add or remove elements** after creation.
+- Elements can be accessed but cannot be modified.
+
+---
+
+### **2. Mutable ArrayList**
+
+A **mutable ArrayList** allows you to modify the list after creation. You can add, remove, and update elements in a mutable ArrayList. This is useful when you need a dynamic list whose content will change over time.
+
+- **Declared with `ArrayList` class**:
+Mutable lists are created using the `ArrayList` class in Kotlin.
+
+### **How to Create a Mutable ArrayList**
+
+You can use the `arrayListOf()` function to create a mutable list.
+
+**Example:**
+
+```kotlin
+kotlin
+Copy code
+val fruits = arrayListOf("Apple", "Banana", "Cherry")
+
+// Accessing elements
+println(fruits[0])  // Output: Apple
+
+// Modifying elements
+fruits[1] = "Blueberry"  // Now Banana is replaced with Blueberry
+println(fruits)  // Output: [Apple, Blueberry, Cherry]
+
+// Adding new elements
+fruits.add("Date")
+println(fruits)  // Output: [Apple, Blueberry, Cherry, Date]
+
+// Removing elements
+fruits.remove("Cherry")
+println(fruits)  // Output: [Apple, Blueberry, Date]
+
+```
+
+### **Key Properties of Mutable ArrayList:**
+
+- **Size can change** (add/remove elements).
+- **Elements can be modified**.
+- **You can add new elements or remove existing ones**.
+
+---
+
+### **3. Differences Between Immutable and Mutable ArrayLists**
+
+| Feature | **Immutable ArrayList** | **Mutable ArrayList** |
+| --- | --- | --- |
+| **Modification** | Cannot modify the list. | Can modify the list. |
+| **Add/Remove Elements** | Cannot add or remove elements. | Can add or remove elements. |
+| **Declaration** | `listOf()` | `arrayListOf()` |
+| **Performance** | Slightly more efficient in read-heavy scenarios because no changes are allowed. | Less efficient if list size grows too frequently due to reallocation of memory. |
+| **Usage** | Use when list should not change. | Use when list needs to change dynamically. |
+
+---
+
+### **4. ArrayList Methods**
+
+### **For Immutable ArrayList (`List`):**
+
+- **`size`**: Gets the number of elements in the list.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.size)  // Output: 3
+    
+    ```
+    
+- **`contains()`**: Checks if an element exists.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.contains("Banana"))  // Output: false (after modification)
+    
+    ```
+    
+- **`indexOf()`**: Returns the index of an element.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    println(fruits.indexOf("Cherry"))  // Output: -1 (not found)
+    
+    ```
+    
+
+### **For Mutable ArrayList (`ArrayList`):**
+
+- **`add()`**: Adds an element to the list.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    fruits.add("Dragonfruit")
+    
+    ```
+    
+- **`remove()`**: Removes an element.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    fruits.remove("Apple")
+    
+    ```
+    
+- **`clear()`**: Removes all elements.
+    
+    ```kotlin
+    kotlin
+    Copy code
+    fruits.clear()
+    
+    ```
+    
+
+---
+
+### **5. When to Use Immutable vs Mutable ArrayLists**
+
+- **Immutable lists** are good when the list is not expected to change, which makes the code safer and easier to understand.
+- **Mutable lists** are useful when you need flexibility to add, modify, or remove elements during the program’s execution.
+
+---
+
+### **Summary Table:**
+
+| Property | **Immutable ArrayList** | **Mutable ArrayList** |
+| --- | --- | --- |
+| **Creation Method** | `listOf()` | `arrayListOf()` |
+| **Modification** | No modification allowed | Can modify (add, remove, etc.) |
+| **Use Case** | When the list should remain constant | When the list needs to be dynamic |
+
+---
