@@ -28,7 +28,7 @@ This documentation is created by Hariom Harsh [Harry](https://github.com/Harry28
 19. [Scope Functions](#scope-functions)
 20. [Collections](#collections)
 21. [Nullability in Kotlin](#nullability-in-kotlin)
-22. [Arrays in Kotlin](#Arrays in Kotlin)
+22. [Arrays in Kotlin](#Arrays-in-Kotlin)
 
 ---
 
@@ -174,9 +174,7 @@ class TestLearn {
 1. **Secondary/Custom Constructor**
     - A class in Kotlin can have at most one primary constructor, and one or more custom/secondary constructors.
     - The primary constructor initializes the class and introduce some extra logic.
-    
-    [https://www.notion.so](https://www.notion.so)
-    
+
 
 ```kotlin
 class TestLearn {
