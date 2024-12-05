@@ -620,7 +620,7 @@ class user {
     var mobNo: String = "0987654321"
 }
 ```
-
+---
 ### Collections
 
 - A Collection usually contains a number of objects (this number may also be zero) of the same type.
@@ -720,6 +720,7 @@ fun main() {
 
 }
 ```
+---
 
 ### Nullability in Kotlin
 
@@ -759,8 +760,7 @@ You can declare an array in Kotlin in multiple ways.
 **Syntax:**
 
 ```kotlin
-kotlin
-Copy code
+
 val arrayName = arrayOf(value1, value2, value3, ...)
 
 ```
@@ -768,8 +768,7 @@ val arrayName = arrayOf(value1, value2, value3, ...)
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 val fruits = arrayOf("Apple", "Banana", "Cherry")
 
 ```
@@ -783,8 +782,7 @@ You can specify the size of an array by using `Array()` constructor.
 **Syntax:**
 
 ```kotlin
-kotlin
-Copy code
+
 val arrayName = Array(size) { initialValue }
 
 ```
@@ -792,8 +790,7 @@ val arrayName = Array(size) { initialValue }
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 val numbers = Array(5) { 0 }  // Creates an array of size 5, initialized with 0
 
 ```
@@ -805,8 +802,7 @@ Arrays are accessed using an index. Remember, array indexing starts at 0.
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 println(fruits[0])  // Output: Apple
 
 ```
@@ -818,8 +814,7 @@ You can modify array elements by assigning a new value to a specific index.
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 fruits[1] = "Blueberry"
 println(fruits[1])  // Output: Blueberry
 
@@ -832,8 +827,7 @@ You can loop through arrays using a `for` loop or `forEach`.
 **Example 1: Using `for` loop**
 
 ```kotlin
-kotlin
-Copy code
+
 for (fruit in fruits) {
     println(fruit)
 }
@@ -843,8 +837,7 @@ for (fruit in fruits) {
 **Example 2: Using `forEach`**
 
 ```kotlin
-kotlin
-Copy code
+
 fruits.forEach { println(it) }
 
 ```
@@ -856,8 +849,7 @@ Kotlin arrays come with built-in methods for manipulation.
 - **`size`**: Get the size of an array.
     
     ```kotlin
-    kotlin
-    Copy code
+    
     println(fruits.size)  // Output: 3
     
     ```
@@ -865,8 +857,7 @@ Kotlin arrays come with built-in methods for manipulation.
 - **`isEmpty()`**: Check if the array is empty.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.isEmpty())  // Output: false
     
     ```
@@ -874,8 +865,7 @@ Kotlin arrays come with built-in methods for manipulation.
 - **`contains(value)`**: Check if the array contains a specific value.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.contains("Banana"))  // Output: true
     
     ```
@@ -883,8 +873,7 @@ Kotlin arrays come with built-in methods for manipulation.
 - **`indexOf(value)`**: Find the index of a value.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.indexOf("Cherry"))  // Output: 2
     
     ```
@@ -897,8 +886,7 @@ You can create arrays of arrays (i.e., 2D arrays) in Kotlin.
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 val matrix = Array(2) { Array(3) { 0 } }
 matrix[0][0] = 1
 matrix[1][2] = 2
@@ -914,8 +902,7 @@ Kotlin provides several functions to manipulate arrays.
 - **`map()`**: Transforms the array elements.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val lengths = fruits.map { it.length }
     println(lengths)  // Output: [5, 9, 6]
     
@@ -924,8 +911,7 @@ Kotlin provides several functions to manipulate arrays.
 - **`filter()`**: Filters elements based on a condition.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val filtered = fruits.filter { it.contains("e") }
     println(filtered)  // Output: [Apple, Cherry]
     
@@ -934,8 +920,7 @@ Kotlin provides several functions to manipulate arrays.
 - **`sorted()`**: Sorts the array.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val sortedFruits = fruits.sorted()
     println(sortedFruits)  // Output: [Apple, Banana, Cherry]
     
@@ -944,8 +929,7 @@ Kotlin provides several functions to manipulate arrays.
 - **`reversed()`**: Reverses the array.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val reversedFruits = fruits.reversed()
     println(reversedFruits)  // Output: [Cherry, Banana, Apple]
     
@@ -954,8 +938,7 @@ Kotlin provides several functions to manipulate arrays.
 - **`joinToString()`**: Converts the array into a string.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val fruitsString = fruits.joinToString(", ")
     println(fruitsString)  // Output: Apple, Banana, Cherry
     
@@ -967,8 +950,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Copying an Array**: You can copy an array with `copyOf()` or `copyOfRange()`.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val copiedFruits = fruits.copyOf()
     println(copiedFruits.joinToString())  // Output: Apple, Banana, Cherry
     
@@ -977,8 +959,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Array with Specific Type**: You can specify the array type explicitly.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val intArray = IntArray(3) { 0 }
     println(intArray.joinToString())  // Output: 0, 0, 0
     
@@ -987,8 +968,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Using `ArrayList`**: If you need a dynamic array (resizable array), use `ArrayList`.
     
     ```kotlin
-    kotlin
-    Copy code
+
     val dynamicArray = arrayListOf("Apple", "Banana")
     dynamicArray.add("Cherry")
     println(dynamicArray)  // Output: [Apple, Banana, Cherry]
@@ -1001,8 +981,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Find the maximum value in an array**:
     
     ```kotlin
-    kotlin
-    Copy code
+
     val max = numbers.maxOrNull()
     println(max)  // Output: null if empty
     
@@ -1011,8 +990,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Find the sum of elements in an array**:
     
     ```kotlin
-    kotlin
-    Copy code
+
     val sum = numbers.sum()
     println(sum)  // Output: 0
     
@@ -1021,8 +999,7 @@ Kotlin provides several functions to manipulate arrays.
 - **Checking for null values in an array**:
     
     ```kotlin
-    kotlin
-    Copy code
+
     val nullableArray = arrayOf(1, 2, null, 4)
     val containsNull = nullableArray.contains(null)
     println(containsNull)  // Output: true
@@ -1050,8 +1027,7 @@ You can use the `listOf()` function to create an immutable list.
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 val fruits = listOf("Apple", "Banana", "Cherry")
 
 // Accessing elements
@@ -1084,8 +1060,7 @@ You can use the `arrayListOf()` function to create a mutable list.
 **Example:**
 
 ```kotlin
-kotlin
-Copy code
+
 val fruits = arrayListOf("Apple", "Banana", "Cherry")
 
 // Accessing elements
@@ -1132,8 +1107,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`size`**: Gets the number of elements in the list.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.size)  // Output: 3
     
     ```
@@ -1141,8 +1115,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`contains()`**: Checks if an element exists.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.contains("Banana"))  // Output: false (after modification)
     
     ```
@@ -1150,8 +1123,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`indexOf()`**: Returns the index of an element.
     
     ```kotlin
-    kotlin
-    Copy code
+
     println(fruits.indexOf("Cherry"))  // Output: -1 (not found)
     
     ```
@@ -1162,8 +1134,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`add()`**: Adds an element to the list.
     
     ```kotlin
-    kotlin
-    Copy code
+
     fruits.add("Dragonfruit")
     
     ```
@@ -1171,8 +1142,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`remove()`**: Removes an element.
     
     ```kotlin
-    kotlin
-    Copy code
+
     fruits.remove("Apple")
     
     ```
@@ -1180,8 +1150,7 @@ println(fruits)  // Output: [Apple, Blueberry, Date]
 - **`clear()`**: Removes all elements.
     
     ```kotlin
-    kotlin
-    Copy code
+
     fruits.clear()
     
     ```
